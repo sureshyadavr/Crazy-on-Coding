@@ -1,0 +1,41 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+struct node
+{
+    int data;
+    struct node* link;
+};
+typedef struct node* NODE;
+int main()
+{
+    int n=1, num;
+    printf("enter a number");
+    scanf("%d", &num);
+    NODE first=NULL;
+    NODE temp=NULL;
+    NODE ptr=NULL;
+    while(n != num)
+    {
+        if(first==NULL)
+        {
+            first = (struct node*)malloc(sizeof(struct node));
+            ptr = (struct node*)malloc(sizeof(struct node));
+            first->data = n;
+            first->link = NULL;
+            ptr = first;
+            printf("%d", first->data);
+        }
+        else
+        {
+            
+            ptr->link = (struct node*)malloc(sizeof(struct node));
+            ptr = ptr->link;
+            ptr->data = n;
+            ptr->link = NULL;
+            printf("%d", ptr->data);
+        }
+    n++;    
+    }
+    return 0;
+}
